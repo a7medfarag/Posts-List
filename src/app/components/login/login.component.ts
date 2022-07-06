@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/posts-list'])
       },
       err=>{
-        console.log(err.respond);
-        this.toastr.error('Please Follow The Log in criteria')
+        console.log(err.error.message);
+        this.toastr.error(err.error.message ||'Error Happened')
       }
       )
     }
