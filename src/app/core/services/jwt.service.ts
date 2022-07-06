@@ -14,9 +14,7 @@ export class JwtService {
   constructor(private http: HttpClient, private router: Router) { }
 
 
-  login(data:any){
-    console.log(`${environment.base_url}/login_by_email`);
-    
+  login(data:any){    
     return this.http.post(`${environment.base_url}/login_by_email`,data)
   }
 

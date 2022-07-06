@@ -30,13 +30,11 @@ export class LoginComponent implements OnInit {
     this.submitted =true;
     if(this.loginForm.valid){
         this.jwt.login(this.collectInputData(this.loginForm.value)).subscribe((res:any)=>{
-          console.log(res);
           this.toastr.success('Login Success')
         this.jwt.setToken(res.data.user.access_token);
         this.router.navigate(['/posts-list'])
       },
       err=>{
-        console.log(err.error.message);
         this.toastr.error(err.error.message ||'Error Happened')
       }
       )

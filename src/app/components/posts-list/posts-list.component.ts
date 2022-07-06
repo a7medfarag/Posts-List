@@ -16,7 +16,6 @@ export class PostsListComponent implements OnInit {
     this._posts.posts.subscribe(
       res=>{
         this.posts = res
-        console.log(res);
       }
       )
       this.getPosts()
