@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "12fdd1bd-0362-43ad-a760-1ca84badd3af",
+		"name": "Trendo - test collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login APIs",
+			"item": [
+				{
+					"name": "login by phone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"jwt_token\", data.data.user.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"user\": {\"country_code\": \"+20\", \"phone_number\": \"1095026412\", \"password\": \"password\"}, \"device\": {\"uid\":\"3\", \"token\": \"i\"}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{api}}/{{version}}/login_by_phone",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api}}",
+								"{{version}}",
+								"login_by_phone"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login by phone - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"user\": {\"country_code\": \"+20\", \"phone_number\": \"1095026412\", \"password\": \"password\"}, \"device\": {\"uid\":\"3\", \"token\": \"i\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/{{api}}/{{version}}/login_by_phone",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api}}",
+										"{{version}}",
+										"login_by_phone"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b8fc94fe9d48e6aae676e5e29bb986c\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "828cd537-0c60-465c-bbdc-9a35effb6730"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.179408"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Server",
+									"value": "thin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم\",\n    \"data\": {\n        \"user\": {\n            \"type\": \"User\",\n            \"id\": 217,\n            \"username\": \"testing_phone\",\n            \"name\": \"Test account\",\n            \"avatar\": \"\",\n            \"location\": null,\n            \"bio\": \"This is a bio\",\n            \"email\": \"\",\n            \"country_code\": \"20\",\n            \"phone_number\": \"1095026412\",\n            \"birthdate\": null,\n            \"is_verified\": true,\n            \"enable_notifications\": false,\n            \"email_subscribed\": false,\n            \"status\": \"active\",\n            \"provider\": \"phone\",\n            \"unconfirmed_email\": null,\n            \"unconfirmed_country_code\": null,\n            \"unconfirmed_phone\": null,\n            \"access_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMTcsImRldmljZSI6NDY0LCJleHAiOjQ3NjkwMDQ4Nzd9.PrNL6irctnPsXqvedQc5SNTeam8e0jZP-dnOttedthE\",\n            \"num_of_followers\": 0,\n            \"num_of_followings\": 0\n        },\n        \"device\": {\n            \"id\": 464,\n            \"uid\": \"3\",\n            \"token\": \"i\",\n            \"user_id\": 217,\n            \"locale\": \"ar\",\n            \"logged_out\": false,\n            \"created_at\": \"2021-02-14T13:34:37.690Z\",\n            \"updated_at\": \"2021-02-14T13:34:37.690Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login by email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"jwt_token\", data.data.user.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ar",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{jwt_token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user\" : {\n    \"email\" : \"testing_email@example.com\",\n    \"password\" : \"password\"},\n    \"device\": {\"uid\":\"3\", \"token\": \"i\"}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{api}}/{{version}}/login_by_email",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api}}",
+								"{{version}}",
+								"login_by_email"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login by email - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "ar",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"user\" : {\n    \"email\" : \"testing_email@example.com\",\n    \"password\" : \"password\"},\n    \"device\": {\"uid\":\"3\", \"token\": \"i\"}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/{{api}}/{{version}}/login_by_email",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api}}",
+										"{{version}}",
+										"login_by_email"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c08c278cc8496051d2aa5724000316a5\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "07311183-a6bf-432e-8aec-96b77ce4896c"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.177294"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Server",
+									"value": "thin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم\",\n    \"data\": {\n        \"user\": {\n            \"type\": \"User\",\n            \"id\": 216,\n            \"username\": \"email_test\",\n            \"name\": \"Test account\",\n            \"avatar\": \"\",\n            \"location\": null,\n            \"bio\": \"This is a bio\",\n            \"email\": \"testing_email@example.com\",\n            \"country_code\": \"\",\n            \"phone_number\": \"\",\n            \"birthdate\": null,\n            \"is_verified\": true,\n            \"enable_notifications\": false,\n            \"email_subscribed\": false,\n            \"status\": \"active\",\n            \"provider\": \"email\",\n            \"unconfirmed_email\": null,\n            \"unconfirmed_country_code\": null,\n            \"unconfirmed_phone\": null,\n            \"access_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMTYsImRldmljZSI6NDY1LCJleHAiOjQ3NjkwMDQ5NDV9.xVTMHg7a2SSPM2UMDHu0MabBDxMIWVF3hDkAcvh7AmQ\",\n            \"num_of_followers\": 0,\n            \"num_of_followings\": 0\n        },\n        \"device\": {\n            \"id\": 465,\n            \"uid\": \"3\",\n            \"token\": \"i\",\n            \"user_id\": 216,\n            \"locale\": \"ar\",\n            \"logged_out\": false,\n            \"created_at\": \"2021-02-14T13:35:45.610Z\",\n            \"updated_at\": \"2021-02-14T13:35:45.610Z\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Posts listing",
+			"item": [
+				{
+					"name": "list home posts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"paging\" : {\n          \"page_size\" : 2,\n          \"page_number\" : 1\n    }\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{api}}/{{version}}/home/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api}}",
+								"{{version}}",
+								"home",
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list home posts - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"paging\" : {\n          \"page_size\" : 2,\n          \"page_number\" : 1\n    }\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/{{api}}/{{version}}/home/posts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api}}",
+										"{{version}}",
+										"home",
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"94494f0d190eef2588e4c648068bb04c\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "3cc97614-ce77-4a3c-abce-24e8f6c62b4f"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.023059"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Server",
+									"value": "thin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم\",\n    \"data\": {\n        \"posts\": [\n            {\n                \"type\": \"Post\",\n                \"id\": 778,\n                \"body\": \"Test posr\",\n                \"created_at\": \"2021-02-14T13:37:21.530Z\",\n                \"updated_at\": \"2021-02-14T13:37:21.530Z\",\n                \"is_liked_by_current_user\": false,\n                \"emotion\": \"متفائل\",\n                \"photos\": [\n                    {\n                        \"photo_id\": 408,\n                        \"img_url\": \"https://trendo.s3.eu-west-3.amazonaws.com/cZFsMRp60wOANNS_gtW90Q_1613309841_.jpeg\"\n                    }\n                ],\n                \"hashtags\": [\n                    {\n                        \"id\": 68,\n                        \"name\": \"هاشتاج\"\n                    }\n                ],\n                \"num_of_reposts\": 0,\n                \"num_of_likes\": 0,\n                \"num_of_comments\": 0,\n                \"user\": {\n                    \"type\": \"User\",\n                    \"id\": 216,\n                    \"username\": \"email_test\",\n                    \"name\": \"Test account\",\n                    \"avatar\": \"\",\n                    \"location\": null,\n                    \"bio\": \"This is a bio\"\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Add like to post",
+			"item": [
+				{
+					"name": "like or unlike post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/{{api}}/{{version}}/posts/:post_id/like-unlike",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api}}",
+								"{{version}}",
+								"posts",
+								":post_id",
+								"like-unlike"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "778"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "like or unlike post - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/{{api}}/{{version}}/posts/:post_id/like-unlike",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api}}",
+										"{{version}}",
+										"posts",
+										":post_id",
+										"like-unlike"
+									],
+									"variable": [
+										{
+											"key": "post_id",
+											"value": "778"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d948ea775e017314f803344b2bdef4ba\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "55d3ee29-3b16-4a20-b18b-eb345a3e2456"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.035884"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Server",
+									"value": "thin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"تم وضع الاعجاب بنجاح\",\n    \"data\": {\n        \"type\": \"Post\",\n        \"id\": 778,\n        \"body\": \"Test posr\",\n        \"created_at\": \"2021-02-14T13:37:21.530Z\",\n        \"updated_at\": \"2021-02-14T13:37:21.530Z\",\n        \"is_liked_by_current_user\": true,\n        \"emotion\": \"متفائل\",\n        \"photos\": [\n            {\n                \"photo_id\": 408,\n                \"img_url\": \"https://trendo.s3.eu-west-3.amazonaws.com/cZFsMRp60wOANNS_gtW90Q_1613309841_.jpeg\"\n            }\n        ],\n        \"hashtags\": [\n            {\n                \"id\": 68,\n                \"name\": \"هاشتاج\"\n            }\n        ],\n        \"num_of_reposts\": 0,\n        \"num_of_likes\": 1,\n        \"num_of_comments\": 0,\n        \"user\": {\n            \"type\": \"User\",\n            \"id\": 216,\n            \"username\": \"email_test\",\n            \"name\": \"Test account\",\n            \"avatar\": \"\",\n            \"location\": null,\n            \"bio\": \"This is a bio\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
